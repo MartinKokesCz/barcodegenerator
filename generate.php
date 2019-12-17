@@ -1,24 +1,24 @@
 <?php
-require_once 'header.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+
 use setasign\Fpdi\Fpdi;
 
 // TODO check if it is in array 500 1000 2000
 $amount = filter_input(INPUT_GET, 'amount');
 $EAN = filter_input(INPUT_GET, 'EAN');
 
-?>
-<div class="container">
-    <?php
-    $generatorHTML = new Picqer\Barcode\BarcodeGeneratorHTML();
+    //$generatorHTML = new Picqer\Barcode\BarcodeGeneratorHTML();
     //echo $generatorHTML->getBarcode($EAN, $generatorHTML::TYPE_EAN_13, 1);
 
-    $generatorPNG = new Picqer\Barcode\BarcodeGeneratorPNG();
-    $file = $generatorPNG->getBarcode($EAN, $generatorPNG::TYPE_EAN_13, 1);
-    file_put_contents("test.png", $file);
-    ?>
-</div>
-<?php
+$generatorPNG = new Picqer\Barcode\BarcodeGeneratorPNG();
 
+try {
+    $file = $generatorPNG->getBarcode($EAN, $generatorPNG::TYPE_EAN_13, 1);
+} catch (\Throwable $e) {
+    echo "Neplatný EAN!";
+    exit();
+}
+    (isset($file)) ? file_put_contents("test.png", $file) : null;
 
 (!file_exists('output')) ? mkdir('output') : null;
 (!file_exists('staticEAN')) ? mkdir('staticEAN') : null;
@@ -74,11 +74,11 @@ switch ($amount) {
 }
 
 
-$pdf->Output('F', "output" . DIRECTORY_SEPARATOR . "output.pdf");
+$pdf->SetTitle("darkovy-poukaz-$EAN.pdf");
+$pdf->Output('I', "darkovy-poukaz-$EAN.pdf");
 
 ?>
 <div class="text-center mt-5">
-    <img src="staticEAN/<?= $amount ?>.png" alt="" class="src">
 <div>
 <?php
 

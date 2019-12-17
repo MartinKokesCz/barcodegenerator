@@ -4,8 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02e78b742b0a940b9bd9e08ec4876700",
+    "content-hash": "f6d5db919e95ec898dbd30e8cbe4383b",
     "packages": [
+        {
+            "name": "jucksearm/php-barcode",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jucksearm/php-barcode.git",
+                "reference": "066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jucksearm/php-barcode/zipball/066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b",
+                "reference": "066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "jucksearm\\barcode\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "jucksearm",
+                    "email": "jucksearm.bkk@gmail.com"
+                }
+            ],
+            "description": "Barcode Generation Package inspired by Nicola Asuni.",
+            "keywords": [
+                "CODE 128",
+                "barcode",
+                "datamatrix",
+                "pdf417",
+                "php barcode",
+                "qr code",
+                "qrcode"
+            ],
+            "time": "2017-06-05T04:41:51+00:00"
+        },
         {
             "name": "picqer/php-barcode-generator",
             "version": "v0.3",
