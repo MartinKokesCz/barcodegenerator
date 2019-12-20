@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="ean">EAN kupónu:</label>
-                        <input type="number" name="EAN" id="ean">
+                        <input type="number" name="EAN" id="ean" required="required">
                     </div>
                     <input class="btn btn-primary" type="submit" name="submit" id="">
                 </form>

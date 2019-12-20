@@ -7,6 +7,7 @@ use setasign\Fpdi\Fpdi;
 $amount = filter_input(INPUT_GET, 'amount');
 $EAN = filter_input(INPUT_GET, 'EAN');
 
+$date = date('d.m.Y');
     //$generatorHTML = new Picqer\Barcode\BarcodeGeneratorHTML();
     //echo $generatorHTML->getBarcode($EAN, $generatorHTML::TYPE_EAN_13, 1);
 
@@ -38,13 +39,19 @@ $pdf->AddPage('L', SIZE);
 $tplId2 = $pdf->importPage(2);
 $pdf->useTemplate($tplId2, 0, 0);
 
+/* add date of signature*/
+$pdf->SetFont('Helvetica', null, 10);
+$pdf->Text(169, 19, $date);
+
+/* add signature */
+$pdf->Image('assets' . DIRECTORY_SEPARATOR . 'podpis.jpg', 165, 23, 42,15.75);
+
 
 $pdf->SetFont('Courier', null, 10);
 $pdf->SetTextColor(0, 0, 0);
 $pdf->SetXY(20, 96);
 $pdf->Text(12.5, 108, $EAN);
 $pdf->Image('test.png', 14, 96);
-
 
 $staticEAN = array('500' => '2011000086145', '1000' => '2011000086121', '2000' => '2011000861469');
 
@@ -79,8 +86,8 @@ $pdf->Output('I', "darkovy-poukaz-$EAN.pdf");
 
 ?>
 <div class="text-center mt-5">
-<div>
-<?php
+    <div>
+        <?php
 
 
 
