@@ -41,6 +41,8 @@ class Generator
         $tplId2 = $pdf->importPage(2);
         $pdf->useTemplate($tplId2, 0, 0);
 
+        $this->generateDate();
+        $this->generateSignature();
 
         $pdf->SetFont('Courier', null, 10);
         $pdf->SetTextColor(0, 0, 0);
@@ -52,6 +54,18 @@ class Generator
 
         $pdf->SetTitle("darkovy-poukaz-$EAN.pdf");
         $pdf->Output('I', "darkovy-poukaz-$EAN.pdf");
+    }
+
+    private function generateDate()
+    {
+        $date = date('d.m.Y');
+        $this->pdf->SetFont('Helvetica', null, 10);
+        $this->pdf->Text(169, 19, $date);
+    }
+
+    private function generateSignature()
+    {
+        $this->pdf->Image("assets/podpis.jpg", 165, 23, 42, 15.75);
     }
 
     /**
@@ -80,26 +94,24 @@ class Generator
      */
     private function generateStaticBarcode($amount)
     {
-        $pdf = $this->pdf;
-
         $staticEAN = $this->barcode->getBarcode(self::STATIC_EANS[$amount], $this->barcode::TYPE_EAN_13, 1);
         file_put_contents("staticEAN/$amount.png", $staticEAN);
 
 
         switch ($amount) {
             case 500:
-                $pdf->Image('staticEAN/500.png', 190, 96);
-                $pdf->Text(189, 108, self::STATIC_EANS[$amount]);
+                $this->pdf->Image('staticEAN/500.png', 190, 96);
+                $this->pdf->Text(189, 108, self::STATIC_EANS[$amount]);
                 break;
     
             case 1000:
-                $pdf->Image('staticEAN/1000.png', 190, 96);
-                $pdf->Text(189, 108, self::STATIC_EANS[$amount]);
+                $this->pdf->Image('staticEAN/1000.png', 190, 96);
+                $this->pdf->Text(189, 108, self::STATIC_EANS[$amount]);
                 break;
 
             case 2000:
-                $pdf->Image('staticEAN/2000.png', 190, 96);
-                $pdf->Text(189, 108, self::STATIC_EANS[$amount]);
+                $this->pdf->Image('staticEAN/2000.png', 190, 96);
+                $this->pdf->Text(189, 108, self::STATIC_EANS[$amount]);
                 break;
 
             default:
@@ -120,4 +132,3 @@ class Generator
         return true;
     }
 }
-
