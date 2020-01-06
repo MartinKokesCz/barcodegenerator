@@ -4,68 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6d5db919e95ec898dbd30e8cbe4383b",
+    "content-hash": "75cf807f4d77835d32643c6301dd4eea",
     "packages": [
         {
-            "name": "jucksearm/php-barcode",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jucksearm/php-barcode.git",
-                "reference": "066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jucksearm/php-barcode/zipball/066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b",
-                "reference": "066a58776ec9e94dd6d5843c0fb9a3ff95e74d8b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "jucksearm\\barcode\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPLv3"
-            ],
-            "authors": [
-                {
-                    "name": "jucksearm",
-                    "email": "jucksearm.bkk@gmail.com"
-                }
-            ],
-            "description": "Barcode Generation Package inspired by Nicola Asuni.",
-            "keywords": [
-                "CODE 128",
-                "barcode",
-                "datamatrix",
-                "pdf417",
-                "php barcode",
-                "qr code",
-                "qrcode"
-            ],
-            "time": "2017-06-05T04:41:51+00:00"
-        },
-        {
             "name": "picqer/php-barcode-generator",
-            "version": "v0.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/picqer/php-barcode-generator.git",
-                "reference": "2e4d5b1f7f04fdb348d0721ada65963dac6f0c0c"
+                "reference": "891f53f3fc7944c821ffccc1f73476b5a445085f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/2e4d5b1f7f04fdb348d0721ada65963dac6f0c0c",
-                "reference": "2e4d5b1f7f04fdb348d0721ada65963dac6f0c0c",
+                "url": "https://api.github.com/repos/picqer/php-barcode-generator/zipball/891f53f3fc7944c821ffccc1f73476b5a445085f",
+                "reference": "891f53f3fc7944c821ffccc1f73476b5a445085f",
                 "shasum": ""
             },
             "require": {
@@ -82,7 +34,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPLv3"
+                "LGPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -121,7 +73,7 @@
                 "svg",
                 "upc"
             ],
-            "time": "2019-01-12T09:29:34+00:00"
+            "time": "2019-12-23T12:36:20+00:00"
         },
         {
             "name": "setasign/fpdf",
@@ -227,7 +179,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "picqer/php-barcode-generator": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
